@@ -5,8 +5,6 @@ stages:
       image: php:7.3-apache
       shellScript: |-
         apt-get update
-        curl --silent --show-error https://getcomposer.org/installer | php
-        ./composer.phar install -n --prefer-dist
         cp config/app.default.php config/app.php
 - name: Publish image
   steps:
