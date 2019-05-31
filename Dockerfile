@@ -21,7 +21,7 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 COPY . /var/www/html
 
-RUN mkdir -p vendor && chmod 777 -R vendor
+RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp
 
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
