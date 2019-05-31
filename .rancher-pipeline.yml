@@ -1,0 +1,22 @@
+stages:
+- name: Codeception test
+  steps:
+  - runScriptConfig:
+      image: php:7.3
+      shellScript: |-
+        apt-get update
+        apt-get install -y --no-install-recommends git zip libsqlite3-dev zlib1g-dev
+        docker-php-ext-install zip
+        curl --silent --show-error https://getcomposer.org/installer | php
+        ./composer.phar install -n --prefer-dist
+        cp config/app.default.php config/app.php
+- name: Publish image
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: cake-example:${CICD_EXECUTION_SEQUENCE}
+- name: Deploy
+  steps:
+  - applyYamlConfig:
+      path: ./deploy/deployment.yaml
