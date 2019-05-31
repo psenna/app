@@ -23,11 +23,11 @@ COPY . /var/www/html
 
 RUN mkdir -p vendor && chmod 777 -R vendor
 
-USER appuser
-
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
-    
+
+USER appuser
+
 RUN composer install --no-ansi --no-interaction --no-progress --optimize-autoloader
     
 EXPOSE 8080
