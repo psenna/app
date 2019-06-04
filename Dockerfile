@@ -23,7 +23,7 @@ COPY . /var/www/html/cake
 
 WORKDIR /var/www/html/cake
 
-RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp
+RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp && chmod 777 composer.lock
 
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
