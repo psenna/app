@@ -19,7 +19,7 @@ RUN a2dissite 000-default.conf && a2ensite custom-vhost.conf && a2enmod rewrite
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY . /var/www/html
+COPY . /var/www/html/cake
 
 RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp
 
