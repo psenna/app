@@ -53,10 +53,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </div>
 </header>
 
-<div class="row">
-    <?php echo Router::url('/', true); ?>
-    <?php echo Router::url('/'); ?>
-    
+<div class="row">    
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
             <p>Please be aware that this page will not be shown if you turn off debug mode unless you replace src/Template/Pages/home.ctp with your own version.</p>
