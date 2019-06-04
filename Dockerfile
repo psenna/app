@@ -19,11 +19,9 @@ RUN a2dissite 000-default.conf && a2ensite custom-vhost.conf && a2enmod rewrite
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY . /var/www/html/cake
+COPY . /var/www/html
 
-WORKDIR /var/www/html/cake
-
-RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp && chmod 777 composer.lock
+RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp
 
 RUN groupadd -g 999 appuser && \
     useradd -r -u 999 -g appuser appuser
@@ -35,4 +33,3 @@ RUN composer install --no-ansi --no-interaction --no-progress --optimize-autoloa
 EXPOSE 8080
 
 CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
-
