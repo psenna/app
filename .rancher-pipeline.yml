@@ -12,7 +12,10 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: cake-example:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: infradev.ufms.br:8084
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deploy/deployment.yaml
+notification: {}
