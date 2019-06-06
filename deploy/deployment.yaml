@@ -28,7 +28,7 @@ spec:
         app: cake-example
     spec:
       imagePullSecrets:
-      - name: pipeline-docker-registry
+      - name: nexus
       containers:
       - name: cake
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
