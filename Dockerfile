@@ -1,5 +1,7 @@
 FROM infradev.ufms.br:8084/agetic/php-apache:latest
 
+WORKDIR /var/www/html
+
 COPY . /var/www/html
 
 RUN mkdir -p vendor && chmod 777 -R vendor && chmod 777 -R logs && chmod 777 -R tmp
